@@ -1,12 +1,42 @@
-html, body { margin: 0; height: 100%; background: #f2f0f4; color: #1d1b22; font: 15px/1.4 system-ui, sans-serif; }
-.app { display: flex; gap: 32px; align-items: center; justify-content: center; height: 100%; padding: 24px; box-sizing: border-box; }
-.controls { display: flex; flex-direction: column; gap: 14px; width: 280px; }
-.controls h1 { margin: 0; font-size: 28px; }
-.controls p { margin: 0; color: #5c5866; }
-label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
-input[type=text] { font: inherit; padding: 8px; border: 1px solid #c9c4d1; border-radius: 6px; }
-button { font: inherit; font-weight: 700; padding: 10px; border: 0; border-radius: 6px; background: #1d1b22; color: #fff; cursor: pointer; }
-canvas { width: min(70vh, 60vw); height: min(70vh, 60vw); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
+/* Neon Boulevard editor: a dark workbench, the cover on the right, controls on the left. */
+html, body { margin: 0; min-height: 100%; background: #12081f; color: #f5ead6; font: 14px/1.4 system-ui, sans-serif; }
+.app { display: flex; gap: 20px; align-items: flex-start; justify-content: center; min-height: 100vh; padding: 16px; box-sizing: border-box; }
+.controls { display: flex; flex-direction: column; gap: 9px; width: 330px; flex-shrink: 0; }
+.controls h1 { margin: 0; font-size: 26px; letter-spacing: 0.5px; color: #fff; text-transform: uppercase; }
+.tagline { margin: 0; color: #c9b8d6; font-size: 13px; }
+fieldset { border: 1px solid #3a2350; border-radius: 10px; padding: 9px 11px; margin: 0; }
+legend { font-weight: 700; color: #ff9e45; padding: 0 6px; }
+label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; margin-bottom: 6px; }
+label span { font-weight: 400; color: #c9b8d6; }
+input[type=text], select { font: inherit; padding: 8px; border: 1px solid #5b3a78; border-radius: 6px; background: #1d1030; color: #f5ead6; }
+input[type=file] { font: inherit; color: #c9b8d6; max-width: 100%; }
+input[type=range] { width: 100%; accent-color: #ff5e78; }
+button { font: inherit; font-weight: 700; padding: 8px 10px; border: 0; border-radius: 8px; background: #2a1740; color: #f5ead6; cursor: pointer; }
+button:hover { background: #3a2350; }
+button.active { background: #ff5e78; color: #fff; }
+button.mini { padding: 6px 10px; font-size: 13px; }
+button.export { width: 100%; background: #ff5e78; color: #fff; font-size: 17px; padding: 13px; }
+button.export:hover { background: #ff7a8c; }
+.picker { display: flex; gap: 6px; flex-wrap: wrap; }
+.picker button { flex: 1 1 auto; }
+.slot { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; margin-bottom: 6px; }
+.slot-name { font-weight: 600; min-width: 48px; flex-shrink: 0; }
+.slot input[type=file] { flex: 1; min-width: 0; font-size: 12px; }
+.slot-state { font-size: 13px; color: #c9b8d6; min-width: 44px; }
+.sliders { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.sliders label { font-size: 12px; margin: 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.two-col label { margin: 0; }
+#size-picker { margin-top: 8px; }
+#export { margin-top: 8px; }
+.panel-editor { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; border-top: 1px dashed #3a2350; padding-top: 10px; }
+.panel-editor strong { color: #a5f3fc; }
+.hint { margin: 8px 0 0; color: #c9b8d6; font-size: 13px; }
+#status { margin: 0; min-height: 20px; color: #a5f3fc; }
+.stage { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; }
+.stage canvas { max-width: 100%; max-height: calc(100vh - 40px); width: auto; height: auto; box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55); cursor: pointer; }
+/* Screenshot scenes: the cover alone, filling the window. */
 body.shot-cover .controls { display: none; }
-body.shot-cover .app { padding: 0; }
-body.shot-cover canvas { width: 100vw; height: 100vh; box-shadow: none; }
+body.shot-cover .app { padding: 0; gap: 0; }
+body.shot-cover .stage { width: 100vw; height: 100vh; }
+body.shot-cover canvas { max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; object-fit: contain; box-shadow: none; cursor: default; }
