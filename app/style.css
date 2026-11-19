@@ -21,7 +21,7 @@ button.export:hover { background: #ff7a8c; }
 .picker button { flex: 1 1 auto; }
 .slot { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; margin-bottom: 6px; }
 .slot-name { font-weight: 600; min-width: 48px; flex-shrink: 0; }
-.slot input[type=file] { flex: 1; min-width: 0; font-size: 12px; }
+.slot input[type=file] { width: 100px; flex: 0 0 auto; min-width: 0; font-size: 11px; }
 .slot-state { font-size: 13px; color: #c9b8d6; min-width: 44px; }
 .sliders { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
 .sliders label { font-size: 12px; margin: 0; }
